@@ -1,12 +1,14 @@
 # PDF Viewer with Spring Boot
 
-This project is a PDF viewer application built using Spring Boot. It allows users to upload, view, and delete PDF files. The application provides a simple interface for managing PDF files and demonstrates how to handle file uploads and downloads in a Spring Boot application.
+This project is a PDF viewer application built using Spring Boot. It allows users to upload, view, and delete PDF files. The application is designed to work with Oracle 11g for file storage, using BLOB (Binary Large Object) data type to handle the PDF files.
 
 ## Features
 
 - **Upload PDFs**: Users can upload PDF files to the server.
 - **View PDFs**: Uploaded PDFs can be viewed directly in the browser.
 - **Delete PDFs**: Users can delete PDFs from the server.
+- **Oracle 11g Integration**: The application integrates with Oracle 11g for storing PDF files.
+- **BLOB Storage**: PDF files are stored as Binary Large Objects (BLOBs) in the database for efficient handling.
 
 ## Technologies Used
 
@@ -14,6 +16,8 @@ This project is a PDF viewer application built using Spring Boot. It allows user
 - **Thymeleaf**: For rendering HTML views.
 - **Bootstrap**: For styling the web pages.
 - **AOS**: For animations on scroll.
+- **Oracle 11g**: For storing the PDF files in a relational database.
+- **BLOB**: Used in Oracle 11g to store PDF files.
 
 ## Getting Started
 
@@ -22,34 +26,44 @@ This project is a PDF viewer application built using Spring Boot. It allows user
 - JDK 11 or higher
 - Maven
 - Git
+- Oracle 11g database (for file storage)
 
 ### Installation
 
-1. Clone the repository:
+1. **Clone the repository:**
 
     ```bash
     git clone https://github.com/mohamedtamer0/PDFViewer-SpringBoot.git
     ```
 
-2. Navigate to the project directory:
+2. **Navigate to the project directory:**
 
     ```bash
     cd PDFViewer-SpringBoot
     ```
 
-3. Build the project using Maven:
+3. **Build the project using Maven:**
 
     ```bash
     mvn clean install
     ```
 
-4. Run the application:
+4. **Configure your `application.properties` file to connect to your Oracle 11g database:**
+
+    ```properties
+    spring.datasource.url=jdbc:oracle:thin:@localhost:1521:xe
+    spring.datasource.username=your_db_username
+    spring.datasource.password=your_db_password
+    spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.Oracle10gDialect
+    ```
+
+5. **Run the application:**
 
     ```bash
     mvn spring-boot:run
     ```
 
-5. Open your browser and go to `http://localhost:8080/pdf/upload` to start using the application.
+6. **Open your browser and go to `http://localhost:8080/pdf/upload` to start using the application.**
 
 ## Usage
 
@@ -69,11 +83,11 @@ This project is a PDF viewer application built using Spring Boot. It allows user
 
 If you want to contribute to this project, please follow these steps:
 
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/YourFeature`).
-3. Commit your changes (`git commit -am 'Add new feature'`).
-4. Push the branch (`git push origin feature/YourFeature`).
-5. Create a new Pull Request.
+1. **Fork the repository.**
+2. **Create a new branch (`git checkout -b feature/YourFeature`).**
+3. **Commit your changes (`git commit -am 'Add new feature'`).**
+4. **Push the branch (`git push origin feature/YourFeature`).**
+5. **Create a new Pull Request.**
 
 ## License
 
@@ -85,4 +99,3 @@ If you have any questions or feedback, please feel free to reach out.
 
 - **Author**: Mohamed Tamer
 - **GitHub**: [mohamedtamer0](https://github.com/mohamedtamer0)
-
