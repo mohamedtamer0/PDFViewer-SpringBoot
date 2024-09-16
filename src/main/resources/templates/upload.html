@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload PDF</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" th:href="@{/css/demo.css}"/>
+    <!-- AOS CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5" data-aos="fade-up">
+    <h1 class="mb-4" data-aos="fade-in">Upload PDF</h1>
+
+    <!-- Display upload form -->
+    <form action="/pdf/upload" method="post" enctype="multipart/form-data" data-aos="fade-up">
+        <div class="form-group">
+            <label for="file">Choose PDF File</label>
+            <input type="file" class="form-control-file" id="file" name="file" accept="application/pdf" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+
+    <!-- Display success or error message -->
+    <div th:if="${message}" class="alert alert-info mt-3" data-aos="fade-in">
+        <p th:text="${message}"></p>
+    </div>
+
+    <!-- Display the list of all PDFs -->
+    <h2 class="mt-5" data-aos="fade-up">List of PDFs</h2>
+    <table class="table table-bordered mt-3" data-aos="fade-up">
+        <thead>
+        <tr>
+            <th>File Name</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="file : ${files}">
+            <td th:text="${file.fileName}"></td>
+            <td>
+                <a th:href="@{/pdf/view/{id}(id=${file.id})}" class="btn btn-info" target="_blank">View</a>
+                <!-- Delete form -->
+                <form th:action="@{/pdf/delete/{id}(id=${file.id})}" method="post" style="display:inline;">
+                    <input type="hidden" name="_method" value="delete"/>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- jQuery (required for Bootstrap's JavaScript plugins) -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!-- Bootstrap JS (optional) -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+    AOS.init(); // Initialize AOS
+</script>
+</body>
+</html>

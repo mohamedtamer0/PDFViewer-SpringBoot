@@ -1,0 +1,84 @@
+/* Default light mode styles */
+body {
+    background-color: #F1EFED; /* Light beige background */
+    color: #212529; /* Dark text color */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: #F1EFED; /* White background for container */
+    transition: all 0.3s ease;
+}
+
+/* Table styles */
+.table {
+    background-color: #F1EFED; /* White background for the table */
+    color: #212529; /* Dark text color */
+    border-radius: 8px; /* Rounded corners for the table */
+    border-collapse: separate; /* Improve table appearance */
+    border-spacing: 0;
+    transition: all 0.3s ease;
+}
+
+/* Header styles */
+h1, h2 {
+    color: #0056b3; /* Dark blue color for headers */
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+/* Form styles */
+.form-group label {
+    color: #0056b3; /* Dark blue color for form labels */
+}
+
+.form-control-file {
+    border: 1px solid #ced4da; /* Light border for file input */
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+/* Button styles */
+.btn-primary {
+    background-color: #007bff; /* Blue background for primary buttons */
+    border-color: #007bff;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    border-color: #004085;
+}
+
+/* Alert styles */
+.alert-info {
+    background-color: #d1ecf1; /* Light blue background for info alert */
+    color: #0c5460; /* Dark text color for info alert */
+    transition: background-color 0.3s ease;
+}
+
+/* Animation styles */
+[data-aos="fade-up"] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+[data-aos="fade-in"] {
+    opacity: 0;
+    transition: opacity 0.6s ease-in;
+}
+
+[data-aos].aos-animate[data-aos="fade-in"] {
+    opacity: 1;
+}
